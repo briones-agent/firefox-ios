@@ -5,13 +5,13 @@
 
 "use strict";
 import { isProbablyReaderable, Readability } from "@mozilla/readability";
-import {setStyle} from "./ReaderModeStyles.js";
+import { setStyle } from "./ReaderModeStyles.js";
 import { findRecipeJSONLD } from "./JSONLD.js";
 
 const DEBUG = false;
 
 var readabilityResult = null;
-const readerModeURL = /^http:\/\/localhost:\d+\/reader-mode\/page/;
+export const readerModeURL = /^http:\/\/localhost:\d+\/reader-mode\/page/;
 
 const BLOCK_IMAGES_SELECTOR =
   ".content p > img:only-child, " +
