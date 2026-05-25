@@ -2277,6 +2277,8 @@ class BrowserViewController: UIViewController,
     func finishEditingAndSubmit(_ url: URL, visitType: VisitType, forTab tab: Tab) {
         overlayManager.finishEditing(shouldCancelLoading: false)
 
+        ConversionEventTracker().recordURILoadConversionEvent()
+
         if let nav = tab.loadRequest(URLRequest(url: url)) {
             self.recordNavigationInTab(tab, navigation: nav, visitType: visitType)
         }
@@ -3309,8 +3311,7 @@ class BrowserViewController: UIViewController,
             return
         }
 
-        let conversionMetrics = UserConversionMetrics()
-        conversionMetrics.didPerformSearch()
+        ConversionActivityLogger().recordSearchedToday()
 
         Experiments.events.recordEvent(BehavioralTargetingEvent.performedSearch)
 
