@@ -1,3 +1,20 @@
+# Firefox iOS + React Native
+
+This is an experimental fork of the official [Firefox iOS](https://github.com/mozilla-mobile/firefox-ios) with the sole purpose of testing brownfield support for Expo and React Native in large native-first codebases. Its commits serve as a reference for anyone interested in integrating React Native into an existing iOS app, especially those that don't want to refactor the whole project structure to accommodate React Native.
+
+This project uses Expo's brownfield isolated approach.
+
+## Integration steps
+
+Check commits for detailed steps, full instructions can be found in the [expo-brownfield documentation](https://docs.expo.dev/brownfield/overview/).
+
+1. **Create the Expo app**: Run `npx create-expo-app expo-app --template default@canary-sdk-56` to set up a new Expo app.
+2. **Install expo-brownfield**: Add expo-brownfield to your project `npx expo install expo-brownfield` and generate a Swift Package.
+3. **Add React Native view**: Integrate the Expo app Swift Package into the existing iOS app.
+
+<details>
+<summary>Firefox for iOS and Focus iOS</summary>
+
 # Firefox for iOS and Focus iOS
 
 Download [Firefox iOS](https://apps.apple.com/app/firefox-web-browser/id989804926) and [Focus iOS](https://itunes.apple.com/app/id1055677337) on the App Store.
@@ -84,3 +101,5 @@ Want to contribute on the codebase but don't know where to start? Here is a list
     This Source Code Form is subject to the terms of the Mozilla Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at https://mozilla.org/MPL/2.0/
+
+</details>
