@@ -48,8 +48,24 @@
         /// the Done button work naturally.
         @objc public static func scheduleAutoPresentIfRequested() {
             guard UserDefaults.standard.bool(forKey: "FirefoxExpoAutoPresent") else { return }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 presentOnKeyWindow()
+                if UserDefaults.standard.bool(forKey: "FirefoxExpoAutoDemo") {
+                    scheduleDemoActions()
+                }
+            }
+        }
+
+        /// Self-driving demo sequence: fires a Sync round, then visits two
+        /// bookmarks at staggered intervals so the recording shows
+        /// bidirectional state + messaging without external UI automation.
+        private static func scheduleDemoActions() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { syncNow() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+                openBookmark(["id": 1])
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+                openBookmark(["id": 3])
             }
         }
 
