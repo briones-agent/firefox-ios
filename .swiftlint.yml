@@ -148,7 +148,9 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - l10n-screenshots-dd/
   - DerivedData/
   - "**/node_modules/**"
+  - "**/SourcePackages/**"
   - firefox-ios/expo-app/
+  - firefox-ios/build/
   # Package.swift files need a custom header for swift-tools-version so must be excluded due to file_header rule. Ignore at all levels.
   - "**/Package.swift"
   - BrowserKit/Sources/Shared/Deferred/

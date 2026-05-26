@@ -133,6 +133,12 @@ class AppDelegate: UIResponder,
 
         metricKitWrapper.beginObservingMXPayloads()
 
+        // Bootstraps the embedded Expo/React Native runtime and registers
+        // the Bookmarks Inspector screen so it can be presented from
+        // anywhere in the app.
+        ExpoIntegration.bootstrap()
+        ExpoIntegration.scheduleAutoPresentIfRequested()
+
         let topSitesProvider = TopSitesProviderImplementation(
             placesFetcher: profile.places,
             pinnedSiteFetcher: profile.pinnedSites,
